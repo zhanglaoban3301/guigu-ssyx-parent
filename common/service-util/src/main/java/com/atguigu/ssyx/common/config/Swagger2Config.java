@@ -19,15 +19,21 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Swagger2配置信息
+ */
 @Configuration
 @EnableSwagger2WebMvc
 public class Swagger2Config {
+
+    //1
     @Bean
     public Docket webApiConfig(){
-        List<Parameter> pars = new ArrayList<Parameter>();
+        List<Parameter> pars = new ArrayList<>();
         ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("userId")
                 .description("用户token")
+                //.defaultValue(JwtHelper.createToken(1L, "admin"))
                 .defaultValue("1")
                 .modelRef(new ModelRef("string"))
                 .parameterType("header")
@@ -39,15 +45,21 @@ public class Swagger2Config {
                 .groupName("webApi")
                 .apiInfo(webApiInfo())
                 .select()
+                //只显示api路径下的页面
+                // /api/user/login
+                // /admin/order/findAll
+                // /add/PERSON/all
                 .apis(RequestHandlerSelectors.basePackage("com.atguigu.ssyx"))
                 .paths(PathSelectors.regex("/api/.*"))
                 .build()
                 .globalOperationParameters(pars);
         return webApi;
     }
+
+    //2
     @Bean
     public Docket adminApiConfig(){
-        List<Parameter> pars = new ArrayList<Parameter>();
+        List<Parameter> pars = new ArrayList<>();
         ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("adminId")
                 .description("用户token")
@@ -58,32 +70,33 @@ public class Swagger2Config {
                 .build();
         pars.add(tokenPar.build());
 
-        Docket webApi = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("webApi")
-                .apiInfo(apiApiInfo())
+        Docket adminApi = new Docket(DocumentationType.SWAGGER_2)
+                .groupName("adminApi")
+                .apiInfo(adminApiInfo())
                 .select()
+                //只显示admin路径下的页面
                 .apis(RequestHandlerSelectors.basePackage("com.atguigu.ssyx"))
-                .paths(PathSelectors.regex("/admin/.*"))
+                //.paths(PathSelectors.regex("/admin/.*"))
                 .build()
                 .globalOperationParameters(pars);
-        return webApi;
+        return adminApi;
     }
 
-    private ApiInfo apiApiInfo() {
-        return new ApiInfoBuilder()
-                .title("网站-API文档")
-                .description("本文档描述了尚上优选后台服务接口定义")
-                .version("1.0")
-                .contact(new Contact("atguigu","http://atguigu.com",null))
-                .build();
-    }
-
-    private ApiInfo webApiInfo() {
+    private ApiInfo webApiInfo(){
         return new ApiInfoBuilder()
                 .title("网站-API文档")
                 .description("本文档描述了尚上优选网站微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("atguigu","http://atguigu.com",null))
+                .contact(new Contact("atguigu", "http://atguigu.com", "atguigu"))
+                .build();
+    }
+
+    private ApiInfo adminApiInfo(){
+        return new ApiInfoBuilder()
+                .title("后台管理系统-API文档")
+                .description("本文档描述了尚上优选后台系统服务接口定义")
+                .version("1.0")
+                .contact(new Contact("atguigu", "http://atguigu.com", "atguigu"))
                 .build();
     }
 }

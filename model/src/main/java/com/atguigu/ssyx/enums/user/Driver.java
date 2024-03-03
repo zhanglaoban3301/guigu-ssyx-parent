@@ -25,5 +25,4 @@ public class Driver extends BaseEntity {
 	@ApiModelProperty(value = "仓库id")
 	@TableField("ware_id")
 	private Long wareId;
-
 }
