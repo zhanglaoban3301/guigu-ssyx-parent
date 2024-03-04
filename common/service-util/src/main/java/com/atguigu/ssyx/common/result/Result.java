@@ -35,7 +35,9 @@ public class Result<T> {
     public static<T> Result<T> fail(T data){
         return build(data, ResultCodeEnum.FAIL);
     }
-
+    public static Result<String> fail(String message){
+        return build(message, ResultCodeEnum.FAIL);
+    }
     public static void main(String[] args) {
 
     }

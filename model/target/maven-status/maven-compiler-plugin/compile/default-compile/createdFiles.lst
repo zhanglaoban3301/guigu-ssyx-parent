@@ -3,6 +3,7 @@ com\atguigu\ssyx\vo\order\CartInfoVo.class
 com\atguigu\ssyx\vo\search\LeaderEsQueryVo.class
 com\atguigu\ssyx\model\order\OrderInfo.class
 com\atguigu\ssyx\model\base\BaseEntity.class
+com\atguigu\ssyx\model\acl\LoginUser.class
 com\atguigu\ssyx\enums\PaymentStatus.class
 com\atguigu\ssyx\model\sys\Region.class
 com\atguigu\ssyx\model\product\SkuStockHistory.class

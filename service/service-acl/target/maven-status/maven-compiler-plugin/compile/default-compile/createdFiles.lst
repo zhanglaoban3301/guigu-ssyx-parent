@@ -1,2 +1,13 @@
-com\atguigu\ssyx\ServiceAclApplication.class
+com\atguigu\ssyx\acl\service\PermissionService.class
+com\atguigu\ssyx\acl\mapper\AdminMapper.class
+com\atguigu\ssyx\acl\mapper\RoleMapper.class
+com\atguigu\ssyx\acl\mapper\PermissionMapper.class
+com\atguigu\ssyx\acl\service\impl\LoginServiceImpl.class
 com\atguigu\ssyx\acl\controller\IndexController.class
+com\atguigu\ssyx\acl\service\impl\RoleServiceImpl.class
+com\atguigu\ssyx\acl\service\impl\PermissionServiceImpl.class
+com\atguigu\ssyx\acl\service\LoginService.class
+com\atguigu\ssyx\ServiceAclApplication.class
+com\atguigu\ssyx\acl\service\RoleService.class
+com\atguigu\ssyx\acl\controller\PermissionController.class
+com\atguigu\ssyx\acl\controller\RoleController.class

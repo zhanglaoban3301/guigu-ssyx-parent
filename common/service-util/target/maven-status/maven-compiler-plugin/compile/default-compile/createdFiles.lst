@@ -1,6 +1,11 @@
-com\atguigu\ssyx\common\config\Swagger2Config.class
-com\atguigu\ssyx\common\result\Result.class
-com\atguigu\ssyx\common\exception\SsyxException.class
+com\atguigu\ssyx\common\config\MyWebConfigurer.class
+com\atguigu\ssyx\common\filter\JwtAuthenticationTokenFilter.class
+com\atguigu\ssyx\common\handler\AuthenticationEntryPointImpl.class
 com\atguigu\ssyx\common\result\ResultCodeEnum.class
 com\atguigu\ssyx\common\exception\GlobalExceptionHandler.class
 com\atguigu\ssyx\common\config\MybatisPlusConfig.class
+com\atguigu\ssyx\common\config\SecurityConfig.class
+com\atguigu\ssyx\common\config\Swagger2Config.class
+com\atguigu\ssyx\common\result\Result.class
+com\atguigu\ssyx\common\exception\SsyxException.class
+com\atguigu\ssyx\common\filter\CorsFilter.class
