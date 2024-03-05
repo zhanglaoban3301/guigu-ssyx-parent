@@ -38,6 +38,14 @@ public class Permission extends BaseEntity {
 	@TableField("code")
 	private String code;
 
+	@ApiModelProperty(value = "路径")
+	@TableField("path")
+	private String path;
+
+	@ApiModelProperty(value = "图标")
+	@TableField("icon")
+	private String icon;
+
 	@ApiModelProperty(value = "跳转页面code")
 	@TableField("to_code")
 	private String toCode;

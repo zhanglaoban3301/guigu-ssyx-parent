@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
-@Api("菜单权限")
+@Api(tags = "菜单权限")
 @RestController
 @RequestMapping("/admin/acl")
 public class PermissionController {
     @Autowired
     private PermissionService permissionService;
     //角色列表
-    @ApiOperation("查询角色列表")
+    @ApiOperation("查询菜单列表")
     @GetMapping("routes")
     public Result routes(){
-        QueryWrapper<Permission> wrapper = new QueryWrapper<>();
-        wrapper.eq("type","1");
-        List<Permission> list = permissionService.list(wrapper);
-        return Result.ok(list);
+        List<Map<String, Object>> routes = permissionService.getRoutes();
+        return Result.ok(routes);
     }
+
+
 }

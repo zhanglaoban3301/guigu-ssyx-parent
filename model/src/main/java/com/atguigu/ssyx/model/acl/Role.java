@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * <p>
  * 角色
@@ -31,6 +33,14 @@ public class Role extends BaseEntity {
 	@ApiModelProperty(value = "备注")
 	@TableField("remark")
 	private String remark;
+
+	@ApiModelProperty(value = "角色编码")
+	@TableField("role_code")
+	private String roleCode;
+
+	@ApiModelProperty(value = "路径")
+	@TableField(value = "path",exist = false)
+	private List<Long> path;
 
 }
 

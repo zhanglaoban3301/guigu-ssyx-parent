@@ -9,7 +9,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Api(tags = "角色接口")
@@ -18,6 +17,7 @@ import java.util.List;
 public class RoleController {
     @Autowired
     private RoleService roleService;
+
     //角色列表
     @ApiOperation("查询角色列表")
     @GetMapping("roles")
@@ -30,29 +30,37 @@ public class RoleController {
         return Result.ok(list);
     }
 
+    //角色列表
+    @ApiOperation("根据id查询角色")
+    @GetMapping("getRoleById")
+    public Result getRoleById(Integer id){
+        QueryWrapper<Role> roleQueryWrapper = new QueryWrapper<>();
+        roleQueryWrapper.eq("id",id);
+        Role role = roleService.getOne(roleQueryWrapper);
+        return Result.ok(role);
+    }
 
     //添加角色
     @ApiOperation("添加角色")
     @PostMapping("role")
     public Result addRole(@RequestBody Role role){
-        boolean save = roleService.save(role);
-        if(save){
-            return Result.ok(null);
-        }else{
-            return Result.fail(null);
-        }
+        Long l = roleService.addRole(role);
+        return Result.ok(l);
     }
+
     //根据id修改角色
     @ApiOperation("修改角色")
     @PostMapping("updateRole")
     public Result updateRole(@RequestBody Role role){
         boolean save = roleService.updateById(role);
+        roleService.upDateRplePermission(role.getId(),role.getPath());
         if(save){
             return Result.ok(null);
         }else{
             return Result.fail(null);
         }
     }
+
     //批量删除角色
     @ApiOperation("批量删除角色")
     @DeleteMapping("deleteRoles")
