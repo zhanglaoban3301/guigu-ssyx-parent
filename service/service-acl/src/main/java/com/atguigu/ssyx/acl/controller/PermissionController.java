@@ -7,9 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -28,5 +26,26 @@ public class PermissionController {
         return Result.ok(routes);
     }
 
+    @ApiOperation("删除菜单")
+    @DeleteMapping("removeMenu")
+    public Result removeMenu(@RequestBody List<Long> ids){
+        boolean b = permissionService.removeByIds(ids);
+        if(b){
+            return Result.ok(null);
+        }else{
+            return Result.fail(null);
+        }
+    }
+
+    @ApiOperation("新增菜单")
+    @PostMapping("addMenu")
+    public Result addMenu(@RequestBody Permission permission){
+        boolean b = permissionService.save(permission);
+        if(b){
+            return Result.ok(null);
+        }else{
+            return Result.fail(null);
+        }
+    }
 
 }

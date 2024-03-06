@@ -15,6 +15,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ServiceAclApplication {
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(ServiceAclApplication.class);
+       SpringApplication.run(ServiceAclApplication.class);
     }
 }

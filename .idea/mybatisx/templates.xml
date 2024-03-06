@@ -15,8 +15,8 @@
             <option name="ignoreFieldSuffix" value="" />
             <option name="ignoreTablePrefix" value="" />
             <option name="ignoreTableSuffix" value="" />
-            <option name="moduleName" value="service-acl" />
-            <option name="modulePath" value="$PROJECT_DIR$/service/service-acl" />
+            <option name="moduleName" value="service-sys" />
+            <option name="modulePath" value="$PROJECT_DIR$/service/service-sys" />
             <option name="moduleUIInfoList">
               <list>
                 <ModuleInfoGo>
@@ -26,18 +26,8 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Mapper" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/service/service-acl" />
+                  <option name="modulePath" value="$PROJECT_DIR$/service/service-sys" />
                   <option name="packageName" value="${domain.basePackage}.mapper" />
-                </ModuleInfoGo>
-                <ModuleInfoGo>
-                  <option name="basePath" value="src/main/resources" />
-                  <option name="configFileName" value="mapperXml.ftl" />
-                  <option name="configName" value="mapperXml" />
-                  <option name="encoding" value="${domain.encoding}" />
-                  <option name="fileName" value="${domain.fileName}Mapper" />
-                  <option name="fileNameWithSuffix" value="${domain.fileName}Mapper.xml" />
-                  <option name="modulePath" value="$PROJECT_DIR$/service/service-acl" />
-                  <option name="packageName" value="mapper" />
                 </ModuleInfoGo>
                 <ModuleInfoGo>
                   <option name="basePath" value="${domain.basePath}" />
@@ -46,7 +36,7 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}ServiceImpl" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}ServiceImpl.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/service/service-acl" />
+                  <option name="modulePath" value="$PROJECT_DIR$/service/service-sys" />
                   <option name="packageName" value="${domain.basePackage}.service.impl" />
                 </ModuleInfoGo>
                 <ModuleInfoGo>
@@ -56,7 +46,7 @@
                   <option name="encoding" value="${domain.encoding}" />
                   <option name="fileName" value="${domain.fileName}Service" />
                   <option name="fileNameWithSuffix" value="${domain.fileName}Service.java" />
-                  <option name="modulePath" value="$PROJECT_DIR$/service/service-acl" />
+                  <option name="modulePath" value="$PROJECT_DIR$/service/service-sys" />
                   <option name="packageName" value="${domain.basePackage}.service" />
                 </ModuleInfoGo>
               </list>
@@ -69,15 +59,15 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="RolePermission" />
-                  <option name="tableName" value="role_permission" />
+                  <option name="className" value="Ware" />
+                  <option name="tableName" value="ware" />
                 </TableUIInfo>
               </list>
             </option>
             <option name="templatesName" value="mybatis-plus3" />
           </GenerateConfig>
         </option>
-        <option name="moduleName" value="service-acl" />
+        <option name="moduleName" value="service-sys" />
         <option name="projectPath" value="$PROJECT_DIR$" />
         <option name="templateName" value="mybatis-plus3" />
       </TemplateContext>
