@@ -10,6 +10,7 @@ import com.atguigu.ssyx.model.acl.LoginUser;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,7 +27,8 @@ public class LoginServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     private AdminMapper adminMapper;
     @Autowired
     private AuthenticationManager authenticationManager;
-
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Override
     public Result Login(String username, String password) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username,password);
@@ -39,7 +41,7 @@ public class LoginServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         }
 
         LoginUser principal = (LoginUser)authenticate.getPrincipal();
-        JavaStore.putData(username,principal);
+        redisTemplate.opsForValue().set(principal.getUsername(), principal);
         String token = JwtUtils.generateToken(principal.getUsername());
         Map<String,String> map = new HashMap<>();
         map.put("token",token);

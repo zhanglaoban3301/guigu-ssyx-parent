@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.atguigu.ssyx.service.RegionWareService;
 import com.atguigu.ssyx.mapper.RegionWareMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +16,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegionWareServiceImpl extends ServiceImpl<RegionWareMapper, RegionWare>
     implements RegionWareService{
-
+    @Autowired
+    private RegionWareMapper regionWareMapper;
+    @Override
+    public void updateStatus(int status, Long id) {
+        regionWareMapper.updateStatus(status, id);
+    }
 }
 
 
