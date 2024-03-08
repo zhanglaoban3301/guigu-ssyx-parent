@@ -2,7 +2,9 @@ package com.atguigu.ssyx.product.controller;
 
 
 
+import com.atguigu.ssyx.common.result.Result;
 import com.atguigu.ssyx.model.product.SkuInfo;
+import com.atguigu.ssyx.vo.product.CommonPageSearch;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
@@ -22,7 +24,7 @@ import java.util.List;
  * @since 2024-03-07 13:49:19
  */
 @RestController
-@RequestMapping("skuInfo")
+@RequestMapping("/pro/skuInfo")
 public class SkuInfoController extends ApiController {
     /**
      * 服务对象
@@ -37,9 +39,10 @@ public class SkuInfoController extends ApiController {
      * @param skuInfo 查询实体
      * @return 所有数据
      */
-    @GetMapping
-    public R selectAll(Page<SkuInfo> page, SkuInfo skuInfo) {
-        return success(this.skuInfoService.page(page, new QueryWrapper<>(skuInfo)));
+    @PostMapping("selectAll")
+    public Result selectAll(@RequestBody CommonPageSearch<SkuInfo> skuInfo) {
+
+        return Result.ok(this.skuInfoService.page(skuInfo.getPage(), new QueryWrapper<>(skuInfo.getData())));
     }
 
     /**
@@ -59,9 +62,9 @@ public class SkuInfoController extends ApiController {
      * @param skuInfo 实体对象
      * @return 新增结果
      */
-    @PostMapping
-    public R insert(@RequestBody SkuInfo skuInfo) {
-        return success(this.skuInfoService.save(skuInfo));
+    @PostMapping("insert")
+    public Result insert(@RequestBody SkuInfo skuInfo) {
+        return Result.ok(this.skuInfoService.save(skuInfo));
     }
 
     /**
@@ -70,9 +73,9 @@ public class SkuInfoController extends ApiController {
      * @param skuInfo 实体对象
      * @return 修改结果
      */
-    @PutMapping
-    public R update(@RequestBody SkuInfo skuInfo) {
-        return success(this.skuInfoService.updateById(skuInfo));
+    @PutMapping("update")
+    public Result update(@RequestBody SkuInfo skuInfo) {
+        return Result.ok(this.skuInfoService.updateById(skuInfo));
     }
 
     /**
@@ -81,9 +84,9 @@ public class SkuInfoController extends ApiController {
      * @param idList 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.skuInfoService.removeByIds(idList));
+    @DeleteMapping("delete")
+    public Result delete(@RequestParam("idList") List<Long> idList) {
+        return Result.ok(this.skuInfoService.removeByIds(idList));
     }
 }
 

@@ -2,7 +2,9 @@ package com.atguigu.ssyx.product.controller;
 
 
 
+import com.atguigu.ssyx.common.result.Result;
 import com.atguigu.ssyx.model.product.SkuAttrValue;
+import com.atguigu.ssyx.vo.product.CommonPageSearch;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
@@ -22,7 +24,7 @@ import java.util.List;
  * @since 2024-03-07 13:46:20
  */
 @RestController
-@RequestMapping("skuAttrValue")
+@RequestMapping("/pro/skuAttrValue")
 public class SkuAttrValueController extends ApiController {
     /**
      * 服务对象
@@ -30,27 +32,19 @@ public class SkuAttrValueController extends ApiController {
     @Resource
     private SkuAttrValueService skuAttrValueService;
 
-    /**
-     * 分页查询所有数据
-     *
-     * @param page 分页对象
-     * @param skuAttrValue 查询实体
-     * @return 所有数据
-     */
-    @GetMapping
-    public R selectAll(Page<SkuAttrValue> page, SkuAttrValue skuAttrValue) {
-        return success(this.skuAttrValueService.page(page, new QueryWrapper<>(skuAttrValue)));
-    }
+
 
     /**
      * 通过主键查询单条数据
      *
-     * @param id 主键
+     * @param skuId 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public R selectOne(@PathVariable Serializable id) {
-        return success(this.skuAttrValueService.getById(id));
+    @GetMapping("getBySkuId")
+    public Result getBySkuId(@RequestParam("skuId") Long skuId) {
+        QueryWrapper<SkuAttrValue> wrapper = new QueryWrapper<>();
+        wrapper.eq("sku_id",skuId);
+        return Result.ok(this.skuAttrValueService.list(wrapper));
     }
 
     /**
@@ -59,9 +53,9 @@ public class SkuAttrValueController extends ApiController {
      * @param skuAttrValue 实体对象
      * @return 新增结果
      */
-    @PostMapping
-    public R insert(@RequestBody SkuAttrValue skuAttrValue) {
-        return success(this.skuAttrValueService.save(skuAttrValue));
+    @PostMapping("insert")
+    public Result insert(@RequestBody SkuAttrValue skuAttrValue) {
+        return Result.ok(this.skuAttrValueService.save(skuAttrValue));
     }
 
     /**
@@ -70,9 +64,9 @@ public class SkuAttrValueController extends ApiController {
      * @param skuAttrValue 实体对象
      * @return 修改结果
      */
-    @PutMapping
-    public R update(@RequestBody SkuAttrValue skuAttrValue) {
-        return success(this.skuAttrValueService.updateById(skuAttrValue));
+    @PutMapping("update")
+    public Result update(@RequestBody SkuAttrValue skuAttrValue) {
+        return Result.ok(this.skuAttrValueService.updateById(skuAttrValue));
     }
 
     /**
@@ -81,9 +75,9 @@ public class SkuAttrValueController extends ApiController {
      * @param idList 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.skuAttrValueService.removeByIds(idList));
+    @DeleteMapping("delete")
+    public Result delete(@RequestParam("idList") List<Long> idList) {
+        return Result.ok(this.skuAttrValueService.removeByIds(idList));
     }
 }
 

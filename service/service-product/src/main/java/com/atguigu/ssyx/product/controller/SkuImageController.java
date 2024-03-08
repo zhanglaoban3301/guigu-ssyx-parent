@@ -2,6 +2,7 @@ package com.atguigu.ssyx.product.controller;
 
 
 
+import com.atguigu.ssyx.common.result.Result;
 import com.atguigu.ssyx.model.product.SkuImage;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
@@ -22,7 +23,7 @@ import java.util.List;
  * @since 2024-03-07 13:47:53
  */
 @RestController
-@RequestMapping("skuImage")
+@RequestMapping("/pro/skuImage")
 public class SkuImageController extends ApiController {
     /**
      * 服务对象
@@ -48,9 +49,12 @@ public class SkuImageController extends ApiController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public R selectOne(@PathVariable Serializable id) {
-        return success(this.skuImageService.getById(id));
+    @GetMapping("getBySkuId")
+    public Result getBySkuId(@RequestParam Long id) {
+        QueryWrapper<SkuImage> skuImageQueryWrapper = new QueryWrapper<>();
+        skuImageQueryWrapper.eq("sku_id",id);
+
+        return Result.ok(this.skuImageService.list(skuImageQueryWrapper));
     }
 
     /**
@@ -59,9 +63,9 @@ public class SkuImageController extends ApiController {
      * @param skuImage 实体对象
      * @return 新增结果
      */
-    @PostMapping
-    public R insert(@RequestBody SkuImage skuImage) {
-        return success(this.skuImageService.save(skuImage));
+    @PostMapping("insert")
+    public Result insert(@RequestBody SkuImage skuImage) {
+        return Result.ok(this.skuImageService.save(skuImage));
     }
 
     /**
@@ -70,9 +74,9 @@ public class SkuImageController extends ApiController {
      * @param skuImage 实体对象
      * @return 修改结果
      */
-    @PutMapping
-    public R update(@RequestBody SkuImage skuImage) {
-        return success(this.skuImageService.updateById(skuImage));
+    @PutMapping("update")
+    public Result update(@RequestBody SkuImage skuImage) {
+        return Result.ok(this.skuImageService.updateById(skuImage));
     }
 
     /**
@@ -81,9 +85,9 @@ public class SkuImageController extends ApiController {
      * @param idList 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.skuImageService.removeByIds(idList));
+    @DeleteMapping("delete")
+    public Result delete(@RequestParam("idList") List<Long> idList) {
+        return Result.ok(this.skuImageService.removeByIds(idList));
     }
 }
 

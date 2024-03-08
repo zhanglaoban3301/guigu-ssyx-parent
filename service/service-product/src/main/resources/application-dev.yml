@@ -27,3 +27,9 @@ spring:
         max-wait: -1    # 最大等待时间（毫秒），-1 表示无限等待
         max-idle: 8     # 最大空闲连接数
         min-idle: 0     # 最小空闲连接数
+
+aliyun:
+  endpoint: oss-cn-beijing.aliyuncs.com
+  keyid: LTAI5tHx6ZTncGE63JoKD3G3
+  keysecret: WMYc9XlDOvkbrA1TtBnXBMlGRgbtbS
+  bucketname: axjl3301

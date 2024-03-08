@@ -2,6 +2,8 @@ package com.atguigu.ssyx.product.controller;
 
 
 
+import com.atguigu.ssyx.common.result.Result;
+import com.atguigu.ssyx.model.product.SkuImage;
 import com.atguigu.ssyx.model.product.SkuPoster;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
@@ -22,7 +24,7 @@ import java.util.List;
  * @since 2024-03-07 13:50:32
  */
 @RestController
-@RequestMapping("skuPoster")
+@RequestMapping("/pro/skuPoster")
 public class SkuPosterController extends ApiController {
     /**
      * 服务对象
@@ -48,9 +50,11 @@ public class SkuPosterController extends ApiController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public R selectOne(@PathVariable Serializable id) {
-        return success(this.skuPosterService.getById(id));
+    @GetMapping("getBySkuId")
+    public Result selectOne(@PathVariable Serializable id) {
+        QueryWrapper<SkuPoster> wrapper = new QueryWrapper<>();
+        wrapper.eq("sku_id",id);
+        return Result.ok(this.skuPosterService.list(wrapper));
     }
 
     /**
@@ -59,9 +63,9 @@ public class SkuPosterController extends ApiController {
      * @param skuPoster 实体对象
      * @return 新增结果
      */
-    @PostMapping
-    public R insert(@RequestBody SkuPoster skuPoster) {
-        return success(this.skuPosterService.save(skuPoster));
+    @PostMapping("insert")
+    public Result insert(@RequestBody SkuPoster skuPoster) {
+        return Result.ok(this.skuPosterService.save(skuPoster));
     }
 
     /**
@@ -70,9 +74,9 @@ public class SkuPosterController extends ApiController {
      * @param skuPoster 实体对象
      * @return 修改结果
      */
-    @PutMapping
-    public R update(@RequestBody SkuPoster skuPoster) {
-        return success(this.skuPosterService.updateById(skuPoster));
+    @PutMapping("update")
+    public Result update(@RequestBody SkuPoster skuPoster) {
+        return Result.ok(this.skuPosterService.updateById(skuPoster));
     }
 
     /**
@@ -81,9 +85,9 @@ public class SkuPosterController extends ApiController {
      * @param idList 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
-    public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.skuPosterService.removeByIds(idList));
+    @DeleteMapping("delete")
+    public Result delete(@RequestParam("idList") List<Long> idList) {
+        return Result.ok(this.skuPosterService.removeByIds(idList));
     }
 }
 
