@@ -1,0 +1,13 @@
+com\atguigu\ssyx\mapper\RegionMapper.class
+com\atguigu\ssyx\mapper\RegionWareMapper.class
+com\atguigu\ssyx\service\impl\WareServiceImpl.class
+com\atguigu\ssyx\ServiceSysApplication.class
+com\atguigu\ssyx\service\RegionWareService.class
+com\atguigu\ssyx\controller\WareController.class
+com\atguigu\ssyx\mapper\WareMapper.class
+com\atguigu\ssyx\service\impl\RegionWareServiceImpl.class
+com\atguigu\ssyx\controller\RegionController.class
+com\atguigu\ssyx\service\RegionService.class
+com\atguigu\ssyx\service\impl\RegionServiceImpl.class
+com\atguigu\ssyx\service\WareService.class
+com\atguigu\ssyx\controller\RegionWareController.class
