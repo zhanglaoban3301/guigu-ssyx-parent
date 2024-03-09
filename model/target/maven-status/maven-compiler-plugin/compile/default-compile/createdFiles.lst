@@ -80,6 +80,7 @@ com\atguigu\ssyx\model\activity\ActivitySku.class
 com\atguigu\ssyx\model\activity\CouponUse.class
 com\atguigu\ssyx\vo\activity\SeckillSkuNoticeVo.class
 com\atguigu\ssyx\model\activity\CouponInfo.class
+com\atguigu\ssyx\vo\product\CommonPageSearch.class
 com\atguigu\ssyx\vo\product\CategoryQueryVo.class
 com\atguigu\ssyx\vo\product\WareQueryVo.class
 com\atguigu\ssyx\model\acl\Role.class

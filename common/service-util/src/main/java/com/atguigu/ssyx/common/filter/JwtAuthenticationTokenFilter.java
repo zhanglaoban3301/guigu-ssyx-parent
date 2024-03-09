@@ -3,6 +3,8 @@ package com.atguigu.ssyx.common.filter;
 import com.atguigu.ssyx.common.store.JavaStore;
 import com.atguigu.ssyx.common.utils.JwtUtils;
 import com.atguigu.ssyx.model.acl.LoginUser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,8 @@ import java.util.Objects;
 
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         //获取token
@@ -38,7 +42,8 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
         }
 
         //从map里查询用户是否处于登录状态
-        LoginUser data =(LoginUser) JavaStore.getData(username);
+        LoginUser data =(LoginUser) redisTemplate.opsForValue().get(username);
+
         if(Objects.isNull(data)){
             throw new RuntimeException("用户未登录");
         }

@@ -2,6 +2,7 @@ package com.atguigu.ssyx.service;
 
 
 import com.atguigu.ssyx.model.sys.Region;
+import com.atguigu.ssyx.model.sys.RegionWare;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
@@ -13,5 +14,8 @@ import java.util.Map;
 * @createDate 2024-03-06 14:33:03
 */
 public interface RegionService extends IService<Region> {
-    List<Map<String,Object>> getRegion();
+    List<RegionWare> getRegion(int pageNo, int pageSize);
+
+    void addRegion(RegionWare regionWare);
+
 }
