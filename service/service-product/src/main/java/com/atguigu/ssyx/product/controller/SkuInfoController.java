@@ -85,8 +85,8 @@ public class SkuInfoController extends ApiController {
      * @return 删除结果
      */
     @DeleteMapping("delete")
-    public Result delete(@RequestParam("idList") List<Long> idList) {
-        return Result.ok(this.skuInfoService.removeByIds(idList));
+    public Result delete(@RequestBody List<Long> ids) {
+        return Result.ok(this.skuInfoService.removeByIds(ids));
     }
 }
 
