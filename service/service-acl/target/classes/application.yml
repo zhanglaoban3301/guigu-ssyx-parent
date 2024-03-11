@@ -5,5 +5,4 @@ spring:
     active: dev
   cloud:
     nacos:
-      discovery:
-        sever-addr: localhost:8848
+        sever-addr: 120.46.82.134:8848

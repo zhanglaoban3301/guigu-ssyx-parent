@@ -1,6 +1,7 @@
 com\atguigu\ssyx\product\controller\AttrGroupController.class
 com\atguigu\ssyx\product\service\impl\CategoryServiceImpl.class
 com\atguigu\ssyx\product\service\impl\FileUploadServiceImpl.class
+com\atguigu\ssyx\product\api\ProductInnerController.class
 com\atguigu\ssyx\product\controller\CommentReplayController.class
 com\atguigu\ssyx\product\controller\SkuImageController.class
 com\atguigu\ssyx\product\service\AttrService.class

@@ -1,8 +1,10 @@
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\dao\CategoryDao.java
+C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\api\ProductInnerController.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\controller\SkuImageController.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\dao\CommentReplayDao.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\SkuPosterService.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\dao\AttrDao.java
+C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\controller\FileUploadController.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\dao\AttrGroupDao.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\SkuAttrValueService.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\AttrServiceImpl.java
@@ -12,6 +14,7 @@ C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\mai
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\AttrGroupServiceImpl.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\dao\SkuStockHistoryDao.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\SkuStockHistoryService.java
+C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\FileUploadService.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\CommentServiceImpl.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\ServiceProApplication.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\CommentReplayServiceImpl.java
@@ -39,3 +42,4 @@ C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\mai
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\SkuPosterServiceImpl.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\controller\SkuInfoController.java
 C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\AttrService.java
+C:\Users\Administrator\Desktop\guigu-ssyx-parent\service\service-product\src\main\java\com\atguigu\ssyx\product\service\impl\FileUploadServiceImpl.java
